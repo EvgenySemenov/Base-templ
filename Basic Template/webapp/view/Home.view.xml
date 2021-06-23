@@ -1,0 +1,23 @@
+<mvc:View controllerName="sap.ui.demo.basicTemplate.controller.Home" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page id="page" title="{i18n>title}" class="sapUiContentPadding">
+		<content>
+
+			<!-- class sap.ui.commons.DropdownBox
+ Deprecated as of version 1.38. replaced by sap.m.ComboBox -->
+
+			<Label text="{i18n>author}" labelFor="idAuthor" width="300px"/>
+			<ComboBox id='idAuthor' showSecondaryValues="true" items="{authors>/}" selectedKey="{/authorKey}" selectionChange="onSelectedAuthor">
+				<core:ListItem key="{authors>id}" text="{authors>firstName}" additionalText="{authors>lastName}" />
+			</ComboBox>
+			<Label text="{i18n>books}" labelFor="idBooks" width="300px"/>
+			<ComboBox id='idBooks' showSecondaryValues="true" items="{books>/books}">
+				<core:ListItem key="{books>id}" text="{books>title}" additionalText="{books>publishDate}" />
+			</ComboBox>
+			<Text text="{= ${/selectedBooks}.length }"></Text>
+
+		</content>
+	</Page>
+</mvc:View>
